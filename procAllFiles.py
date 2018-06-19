@@ -13,7 +13,8 @@ output = 'db'
 
 
     
-dirname = "C:\\TickData2018\\nysestocks_temp\\"
+#dirname = "C:\\TickData2018\\nysestocks_temp\\"
+dirname = ""
    
 if (output == 'csv'):
     f1 = open('5MtsFile.csv', 'w')
@@ -28,7 +29,7 @@ if (output == 'csv'):
  
 fileNum = 0
 
-selected_tickers_file = "C:\\TickData2018\\selectedTickers.csv"
+selected_tickers_file = "selectedTickers.csv"
 
 selectedTickers = csv.reader(open(selected_tickers_file, 'r'), delimiter=',')
 

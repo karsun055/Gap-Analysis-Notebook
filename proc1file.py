@@ -7,6 +7,7 @@ Created on Jun 4, 2018
 #import pyodbc
 import csv
 import db_utils as dbu
+import os
 
 def getSingleFileData(filename, output):
  
@@ -71,8 +72,11 @@ def getSingleFileData(filename, output):
             writer = csv.writer(myFile)
             writer.writerows(total_result)
     elif (output == 'db'):
-        db_file = r'''C:\TickData2018\StooqData.accdb'''  #raw string, escape sequences are ignored
-
+#        db_file = r'''C:\TickData2018\StooqData.accdb'''  #raw string, escape sequences are ignored
+        db_file = 'StooqData.accdb'  #raw string, escape sequences are ignored
+#        if (os.path.isfile(db_file)) :
+#            print('file present')
+        db_file = os.path.abspath(db_file)
         conn = dbu.createDBConnection(db_file)
         c = conn.cursor()
         for row in total_result:
