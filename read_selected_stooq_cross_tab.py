@@ -23,7 +23,9 @@ def get_selected_cross_tab_rec(ticker, date):
     year,month,date = date.split("-")
 #    print(year, month, date)
     date = "#" + month + "/" + date + "/" + year + "#"
-    db_file = r'''C:\TickData2018\StooqDataAnalysis.accdb'''  #raw string, escape sequences are ignored
+#    db_file = r'''C:\TickData2018\StooqDataAnalysis.accdb'''  #raw string, escape sequences are ignored
+    db_file = r'''StooqDataAnalysis.accdb'''  #raw string, escape sequences are ignored
+    db_file = os.path.abspath(db_file)
     conn = dbu.createDBConnection(db_file)
     
     field_names = ['Ticker', 'CurDate']
